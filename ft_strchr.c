@@ -6,7 +6,7 @@
 /*   By: bmoodley <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/02 13:03:22 by bmoodley          #+#    #+#             */
-/*   Updated: 2017/06/06 11:06:02 by bmoodley         ###   ########.fr       */
+/*   Updated: 2017/06/23 10:56:46 by bmoodley         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*ft_strchr(const char *s, int c)
 			return (char *)(&s[i]);
 		i++;
 	}
-	if ((s[i] == '\0') && ((char)c == '\0'))
+	if (s[i] == '\0' && c == '\0')
 		return (char *)(&s[i]);
 	return (NULL);
 }
