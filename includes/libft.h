@@ -6,7 +6,7 @@
 /*   By: bmoodley <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/29 15:36:47 by bmoodley          #+#    #+#             */
-/*   Updated: 2017/07/01 20:18:58 by bmoodley         ###   ########.fr       */
+/*   Updated: 2017/07/01 20:43:37 by bmoodley         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,6 @@ int		ft_atoi(char *str);
 int		ft_isspace(char c);
 int		get_next_line(const int fd, char **line);
 t_list	*ft_lstnew(void *content, size_t content_size);
-t_list	ft_lstadd_back(t_list **alst, void *content);
+void	ft_lstadd_back(t_list **alst, void *content);
 
 #endif
