@@ -6,7 +6,7 @@
 #    By: bmoodley <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/05/29 15:02:38 by bmoodley          #+#    #+#              #
-#    Updated: 2017/06/11 12:51:35 by bmoodley         ###   ########.fr        #
+#    Updated: 2017/07/01 16:47:35 by bmoodley         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,14 +64,17 @@ SRC = ft_isascii.c\
 	  ft_strtrim_delim.c\
 	  ft_strsplit.c\
 	  ft_atoi.c\
-	  ft_isspace.c
+	  ft_isspace.c\
+	  get_next_line.c
+
+INCLUDES = -I ./includes/
 
 OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
 
 $(NAME):
-	gcc -c -Wall -Wextra -Werror $(SRC)
+	gcc -c -Wall -Wextra -Werror $(SRC) $(INCLUDES)
 	ar rc $(NAME) $(OBJ)
 	ranlib $(NAME)
 

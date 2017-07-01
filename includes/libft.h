@@ -6,7 +6,7 @@
 /*   By: bmoodley <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/29 15:36:47 by bmoodley          #+#    #+#             */
-/*   Updated: 2017/06/11 12:52:02 by bmoodley         ###   ########.fr       */
+/*   Updated: 2017/06/30 22:58:29 by bmoodley         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,5 +69,6 @@ void	*ft_memmove(void *dst, const void *src, size_t len);
 char	*ft_strtrim_delim(char const *s, char c);
 int		ft_atoi(char *str);
 int		ft_isspace(char c);
+int		get_next_line(const int fd, char **line);
 
 #endif
