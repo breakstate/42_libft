@@ -6,7 +6,7 @@
 /*   By: bmoodley <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/29 15:36:47 by bmoodley          #+#    #+#             */
-/*   Updated: 2017/06/30 22:58:29 by bmoodley         ###   ########.fr       */
+/*   Updated: 2017/07/01 20:18:58 by bmoodley         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,12 @@
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
+
+typedef	struct	s_list{
+	struct s_list	*next;
+	size_t			content_size;
+	void			*content;
+}				t_list;
 
 int		ft_isascii(int c);
 size_t	ft_strlen(const char *str);
@@ -70,5 +76,7 @@ char	*ft_strtrim_delim(char const *s, char c);
 int		ft_atoi(char *str);
 int		ft_isspace(char c);
 int		get_next_line(const int fd, char **line);
+t_list	*ft_lstnew(void *content, size_t content_size);
+t_list	ft_lstadd_back(t_list **alst, void *content);
 
 #endif
