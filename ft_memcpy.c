@@ -21,11 +21,13 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	i = 0;
 	d = dst;
 	s = (char *)src;
-	while (n--)
+	while (n-- > 0)
 	{
 		d[i] = s[i];
 		i++;
+		printf("i - %d\nn - %d\n", i, n);
 	}
-	dst = (void *)d;
+	printf("end - %s\n", d);
+	//dst = (void *)d;
 	return (dst);
 }

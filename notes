@@ -1,0 +1,9 @@
+ft_atoi:		untested 
+ft_bzero:		tested, trusted	
+ft_memalloc:	looked, trusted until
+ft_memccpy:		looked, trusted until
+ft_memchr:		looked, trusted until
+ft_memcmp:		tested, trusted
+ft_memcpy:		segs on ubuntu
+ft_putendl:		looked, trsuted until
+
