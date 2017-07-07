@@ -26,7 +26,6 @@ SRC = ft_isascii.c\
 	  ft_strncpy.c\
 	  ft_memset.c\
 	  ft_bzero.c\
-	  ft_memcpy.c\
 	  ft_putstr.c\
 	  ft_putchar_fd.c\
 	  ft_strcat.c\
