@@ -78,6 +78,7 @@ $(NAME):
 	gcc -c -Wall -Wextra -Werror $(SRC) $(INCLUDES)
 	ar rc $(NAME) $(OBJ)
 	ranlib $(NAME)
+	rm -f $(OBJ)
 
 clean:
 	rm -f $(OBJ)

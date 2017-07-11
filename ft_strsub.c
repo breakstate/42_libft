@@ -14,8 +14,8 @@
 
 char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
-	char	*dst;
-	int		i;
+	char		*dst;
+	size_t		i;
 
 	i = 0;
 	if (s != NULL)
@@ -23,10 +23,11 @@ char	*ft_strsub(char const *s, unsigned int start, size_t len)
 		dst = (char *)malloc(sizeof(char) * len + 1);
 		if (dst == NULL)
 			return (NULL);
-		while (i < (int)len)
+		while (i < len)
 		{
-			dst[i] = s[start++];
+			dst[i] = s[start];
 			i++;
+			start++;
 		}
 		dst[i] = '\0';
 		return (dst);

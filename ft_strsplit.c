@@ -12,47 +12,53 @@
 
 #include "libft.h"
 
+/* Remember to free each element in calling function */
+
 static char		*word_length(char *s, char c, int word)
 {
 	int		i;
 	int		start;
 	int		word_count;
+	char	*str;
 
 	start = 0;
 	word_count = 0;
-	i = 0;
+	i = 1;
 	if (s[i] != c)
+	{
 		word_count++;
+		start = 0;
+	}
 	while (word_count < word)
 	{
 		if (s[i] != c && s[i - 1] == c)
 		{
 			word_count++;
+			start = i;
 		}
-		start = i;
 		i++;
 	}
 	while (s[i] != c && s[i] != '\0')
 		i++;
-	return (ft_strsub((char *)s, start, i - start));
+	str = (ft_strsub(s, start, i - start));
+	return (str);
 }
 
-static int		count_words(char *s, char c)
+static int		count_words(const char *s, char c)
 {
 	int		i;
 	int		count;
 
+	i = 1;
 	count = 0;
-	i = 0;
+	if (s[0] != c)
+		count++;
 	while (s[i] != '\0')
 	{
 		if (s[i] != c && s[i - 1] == c)
 			count++;
-		if (s[i] == c || s[i] != c)
-			i++;
+		i++;
 	}
-	if (s[0] != c)
-		count++;
 	return (count);
 }
 
@@ -61,17 +67,21 @@ char			**ft_strsplit(char const *s, char c)
 	int		i;
 	char	**strsplit;
 	int		word_count;
+	char	*trimmed_str;
+	char	*word;
 
-	word_count = count_words((char *)s, c);
-	strsplit = (char **)ft_memalloc(sizeof(char) * word_count + 1);
+	i = 0;
+	trimmed_str = ft_strtrim_delim(s, c), c, i + 1;
+	word_count = count_words(s, c);
+	strsplit = (char **)ft_memalloc(sizeof(char *) * word_count + 1);
 	if (strsplit == NULL)
 		return (NULL);
-	i = 0;
 	while (i < word_count)
 	{
-		strsplit[i] = word_length(ft_strtrim_delim(s, c), c, i + 1);
+		word = word_length(trimmed_str, c, i + 1);
+		strsplit[i] = word;
 		i++;
 	}
-	strsplit[i] = NULL;
+	free(trimmed_str);
 	return (strsplit);
 }
