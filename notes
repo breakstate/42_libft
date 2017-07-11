@@ -19,3 +19,4 @@ ft_isspace:		tested, trusted
 
 ft_strsub:		tested, trusted
 ft_strsplit:	tested, trusted, no leaks (when freed in calling function)
+ft_strstr:		tested, trusted until
