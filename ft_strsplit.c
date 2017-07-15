@@ -71,7 +71,7 @@ char			**ft_strsplit(char const *s, char c)
 	char	*word;
 
 	i = 0;
-	trimmed_str = ft_strtrim_delim(s, c), c, i + 1;
+	trimmed_str = ft_strtrim_delim(s, c);//, c, i + 1;
 	word_count = count_words(s, c);
 	strsplit = (char **)ft_memalloc(sizeof(char *) * word_count + 1);
 	if (strsplit == NULL)
