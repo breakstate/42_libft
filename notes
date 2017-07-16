@@ -26,4 +26,17 @@ ft_strtrim:		tested, trusted
 ft_strtrim_delim:	tested, trusted
 ft_strnstr:		tested, trusted until
 ft_strcat:		tested, trusted
+ft_strchr:		tested, trusted
+ft_strclr:		looked, trusted until
+ft_strcmp:		tested, trusted
+ft_strcpy:		tested, trusted
+ft_strequ:		tested, trusted
+ft_strnequ:		tested, trusted
+ft_strncmp:		tested, trusted
+ft_striter:		tested, trusted
+ft_striteri:	tested, trusted
+ft_strlcat:		nopenopenope
+ft_strmap:		tested, trusted
+ft_strmapi:		tested, trusted
+ft_strlen:		tested, trusted
 

@@ -6,7 +6,7 @@
 /*   By: bmoodley <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/10 16:32:23 by bmoodley          #+#    #+#             */
-/*   Updated: 2017/06/10 16:32:29 by bmoodley         ###   ########.fr       */
+/*   Updated: 2017/07/16 12:33:44 by bmoodley         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	int i;
+	unsigned int i;
 
 	i = 0;
 	if (s != NULL)
