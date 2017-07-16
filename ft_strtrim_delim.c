@@ -6,7 +6,7 @@
 /*   By: bmoodley <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/11 15:03:12 by bmoodley          #+#    #+#             */
-/*   Updated: 2017/07/16 10:50:28 by bmoodley         ###   ########.fr       */
+/*   Updated: 2017/07/16 11:51:58 by bmoodley         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ char	*ft_strtrim_delim(char const *s, char c)
 
 	i = 0;
 	j = 0;
+	len = ft_strlen(s);
 	if (s != NULL)
 	{
 		while (s[i] == c)
