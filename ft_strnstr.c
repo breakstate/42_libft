@@ -6,7 +6,7 @@
 /*   By: bmoodley <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/10 16:25:53 by bmoodley          #+#    #+#             */
-/*   Updated: 2017/06/11 11:08:50 by bmoodley         ###   ########.fr       */
+/*   Updated: 2017/07/16 11:10:26 by bmoodley         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 		return ((char *)big);
 	while (big[i] && i < (int)len)
 	{
-		j = 0;
 		while (big[i + j] == little[j] && i + j < (int)len)
 		{
 			j++;
@@ -30,6 +29,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 				return ((char *)&big[i]);
 		}
 		i++;
+		j = 0;
 	}
 	return (NULL);
 }
