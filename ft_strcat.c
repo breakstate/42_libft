@@ -6,26 +6,26 @@
 /*   By: bmoodley <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/02 08:51:25 by bmoodley          #+#    #+#             */
-/*   Updated: 2017/06/06 11:06:37 by bmoodley         ###   ########.fr       */
+/*   Updated: 2017/07/16 11:18:19 by bmoodley         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcat(char *dst, const char *src)
+char	*ft_strcat(char *s1, const char *s2)
 {
 	int i;
 	int j;
 
 	i = 0;
 	j = 0;
-	while (dst[i] != '\0')
+	while (s1[i] != '\0')
 	{
 		i++;
 	}
-	while (src[j] != '\0')
+	while (s2[j] != '\0')
 	{
-		dst[i + j] = src[j];
+		s1[i + j] = s2[j];
 		j++;
 	}
-	dst[i + j] = '\0';
-	return (dst);
+	s1[i + j] = '\0';
+	return (s1);
 }
