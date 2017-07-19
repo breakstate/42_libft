@@ -11,8 +11,12 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
-/* Remember to free each element in calling function */
+/* 
+**	Remember to free each element in calling function
+**	while (s_str && s_str[i])
+*/
 
 static char		*word_length(char *s, char c, int word)
 {
@@ -71,8 +75,10 @@ char			**ft_strsplit(char const *s, char c)
 	char	*word;
 
 	i = 0;
-	trimmed_str = ft_strtrim_delim(s, c);//, c, i + 1;
+	trimmed_str = ft_strtrim_delim(s, c);
 	word_count = count_words(s, c);
+	if (!(word_count))
+		return (NULL);
 	strsplit = (char **)ft_memalloc(sizeof(char *) * word_count + 1);
 	if (strsplit == NULL)
 		return (NULL);
