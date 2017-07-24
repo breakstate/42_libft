@@ -74,6 +74,8 @@ static int		count_words(const char *s, char c)
 	int		i;
 	int		count;
 
+	if (s[0] == '\0')
+		return (0);
 	i = 1;
 	count = 0;
 	if (s[0] != c)
@@ -94,10 +96,12 @@ char			**ft_strsplit(char const *s, char c)
 	int		word_count;
 	char	*trimmed_str;
 	char	*word;
-
 	i = 0;
-	trimmed_str = ft_trim(s, c);
 	word_count = count_words(s, c);
+	if (word_count == 0 || s[0] == '\0')
+		trimmed_str = 0;
+	else
+	trimmed_str = ft_trim(s, c);
 	strsplit = (char **)ft_memalloc(sizeof(char *) * word_count + 1);
 	if (strsplit == NULL)
 		return (NULL);
@@ -107,8 +111,6 @@ char			**ft_strsplit(char const *s, char c)
 		strsplit[i] = word;
 		i++;
 	}
-	if (word_count == 0)
-		trimmed_str = 0;
 	strsplit[i] = 0;
 	free(trimmed_str);
 	return (strsplit);
