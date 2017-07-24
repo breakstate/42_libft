@@ -109,6 +109,7 @@ char			**ft_strsplit(char const *s, char c)
 	}
 	if (word_count == 0)
 		trimmed_str = 0;
+	strsplit[i] = 0;
 	free(trimmed_str);
 	return (strsplit);
 }
