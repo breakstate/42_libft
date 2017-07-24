@@ -13,10 +13,31 @@
 #include "libft.h"
 #include <stdio.h>
 
-/* 
+/*
 **	Remember to free each element in calling function
-**	while (s_str && s_str[i])
+**	s_str[i] in loop as well as s_str after loop
 */
+
+static char		*ft_trim(const char *s, char c)
+{
+	int		i;
+	int		len;
+
+	len = ft_strlen(s);
+	i = 0;
+	while (s[i] && s[i] == c)
+	{
+		i++;
+	}
+	if ((s[i] == '\0'))
+		return (0);
+	while (s[len - 1] == c && len - 1 >= 0)
+	{
+		len--;
+	}
+	return (ft_strsub(s, i, len - i));
+
+}
 
 static char		*word_length(char *s, char c, int word)
 {
@@ -28,7 +49,7 @@ static char		*word_length(char *s, char c, int word)
 	start = 0;
 	word_count = 0;
 	i = 1;
-	if (s[i] != c)
+	if (s[0] != c)
 	{
 		word_count++;
 		start = 0;
@@ -75,10 +96,8 @@ char			**ft_strsplit(char const *s, char c)
 	char	*word;
 
 	i = 0;
-	trimmed_str = ft_strtrim_delim(s, c);
+	trimmed_str = ft_trim(s, c);
 	word_count = count_words(s, c);
-	if (!(word_count))
-		return (NULL);
 	strsplit = (char **)ft_memalloc(sizeof(char *) * word_count + 1);
 	if (strsplit == NULL)
 		return (NULL);
@@ -88,6 +107,8 @@ char			**ft_strsplit(char const *s, char c)
 		strsplit[i] = word;
 		i++;
 	}
+	if (word_count == 0)
+		trimmed_str = 0;
 	free(trimmed_str);
 	return (strsplit);
 }
