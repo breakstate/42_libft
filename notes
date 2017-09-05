@@ -21,7 +21,7 @@ ft_strsub:		tested, trusted
 ft_strjoin:		tested, trusted
 ft_strdup:		tested, trusted
 ft_strsplit:	tested, trusted, no leaks (when freed in calling function)
-ft_strstr:		tested, trusted until
+ft_strstr:		tested, trusted until--
 ft_strtrim:		tested, trusted
 ft_strtrim_delim:	tested, trusted
 ft_strnstr:		tested, trusted until

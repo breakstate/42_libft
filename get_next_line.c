@@ -5,26 +5,27 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmoodley <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/25 15:46:04 by bmoodley          #+#    #+#             */
-/*   Updated: 2017/07/01 13:55:37 by bmoodley         ###   ########.fr       */
+/*   Created: 2017/07/22 12:56:24 by bmoodley          #+#    #+#             */
+/*   Updated: 2017/09/05 15:02:58 by bmoodley         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include "get_next_line.h"
+#include "includes/get_next_line.h"
+#include "includes/libft.h"
 
-static	void	new_expand(char **new, char *buffer, int *pos, int *i)
+static	void	new_malloc(char *buf, char **new, int pos, int i)
 {
 	char		*temp;
 	char		*temp2;
 
 	if (*new == NULL)
 	{
-		*new = ft_strsub(buffer, *pos, *i);
+		if (buf[pos] != '\0')
+			*new = ft_strsub(buf, pos, i);
 	}
 	else
 	{
-		temp2 = ft_strsub(buffer, *pos, *i);
+		temp2 = ft_strsub(buf, pos, i);
 		temp = ft_strdup(*new);
 		free(*new);
 		*new = ft_strjoin(temp, temp2);
@@ -33,57 +34,51 @@ static	void	new_expand(char **new, char *buffer, int *pos, int *i)
 	}
 }
 
-static	int		buf_parse(char **new, char *buffer, int *pos, int *r)
+static int		buf_parse(char *buf, char **new, int *pos, char **line)
 {
 	int			i;
 
-	i = 0;
-	while (buffer[i + *pos] != '\0')
+	i = *pos;
+	while (buf[i])
 	{
-		if (buffer[i + *pos] != '\n')
+		if (buf[i] == '\n')
 		{
-			(i)++;
-		}
-		else if (buffer[i + *pos] == '\n')
-		{
-			new_expand(new, buffer, pos, &i);
-			(i)++;
-			*pos = *pos + i;
+			new_malloc(buf, new, *pos, i - *pos);
+			*pos = i + 1;
+			*line = *new;
 			return (1);
 		}
+		i++;
 	}
-	new_expand(new, buffer, pos, &i);
-	*pos = 0;
-	i = 0;
-	*r = -2;
+	new_malloc(buf, new, *pos, i - *pos);
+	*pos = -1;
 	return (0);
 }
 
 int				get_next_line(const int fd, char **line)
 {
-	static char	buffer[BUFF_SIZE + 1];
 	static int	r = -2;
-	static int	pos = 0;
+	static char	buf[BUFF_SIZE + 1];
+	static int	pos = -1;
 	char		*new;
 
 	new = NULL;
-	while (1)
+	while (42)
 	{
-		if (pos == BUFF_SIZE || r == -2)
+		if (pos == -1)
 		{
-			ft_bzero(buffer, BUFF_SIZE + 1);
-			r = read(fd, buffer, BUFF_SIZE);
+			ft_bzero(buf, BUFF_SIZE + 1);
+			r = read(fd, buf, BUFF_SIZE);
 			pos = 0;
 		}
-		else if (r == -1)
-			return (-1);
-		else if (r == 0)
-			return (0);
-		else
-			while (buf_parse(&new, buffer, &pos, &r))
-			{
-				*line = new;
-				return (1);
-			}
+		if (r == 0 || r == -1)
+		{
+			if (new == NULL)
+				return (r);
+			*line = new;
+			return (1);
+		}
+		else if (buf_parse(buf, &new, &pos, line))
+			return (1);
 	}
 }
