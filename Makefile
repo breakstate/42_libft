@@ -6,7 +6,7 @@
 #    By: bmoodley <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/05/29 15:02:38 by bmoodley          #+#    #+#              #
-#    Updated: 2017/07/01 20:16:15 by bmoodley         ###   ########.fr        #
+#    Updated: 2017/09/14 12:05:22 by bmoodley         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -67,7 +67,11 @@ SRC = ft_isascii.c\
 	  ft_isspace.c\
 	  get_next_line.c\
 	  ft_lstnew.c\
-	  ft_lstadd_back.c
+	  ft_lstadd_back.c\
+	  ft_isupper.c\
+	  ft_islower.c\
+	  ft_putnbr_endl.c\
+	  ft_charequ.c
 
 INCLUDES = -I ./includes/
 

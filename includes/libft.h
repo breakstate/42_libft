@@ -6,7 +6,7 @@
 /*   By: bmoodley <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/29 15:36:47 by bmoodley          #+#    #+#             */
-/*   Updated: 2017/07/01 21:25:54 by bmoodley         ###   ########.fr       */
+/*   Updated: 2017/09/14 12:05:25 by bmoodley         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ int		ft_isalnum(int c);
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
 int		ft_isprint(int c);
+int		ft_isupper(int c);
+int		ft_islower(int c);
 char	*ft_strdup(const char *s);
 int		ft_strcmp(const char *s1, const char *s2);
 char	*ft_strcpy(char *dst, const char *src);
@@ -45,6 +47,7 @@ char	*ft_strncat(char *dst, const char *src, size_t n);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
 int		ft_strequ(char const *s1, char const *s2);
+int		ft_charequ(char const s1, char const s2);
 int		ft_strnequ(char const *s1, char const *s2, size_t n);
 void	ft_putendl(char const *s);
 void	ft_putendl_fd(char const *s, int fd);
@@ -58,6 +61,7 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_strtrim(char const *s);
 void	ft_putnbr(int n);
 void	ft_putnbr_fd(int n, int fd);
+void	ft_putnbr_endl(int n);
 char	*ft_strstr(const char *big, const char *little);
 char	*ft_strnstr(const char *big, const char *little, size_t len);
 void	ft_striter(char *s, void (*f)(char *));
