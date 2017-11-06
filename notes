@@ -1,7 +1,7 @@
 ft_atoi:		tested, trusted (until max int)
 ft_bzero:		tested, trusted (memset)
 
-ft_memset:		tested, trusted	
+ft_memset:		tested, trusted	//why unsigned char
 ft_memalloc:	looked, trusted until
 ft_memccpy:		tested, trusted
 ft_memcpy:		tested, trusted
