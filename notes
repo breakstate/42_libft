@@ -1,4 +1,4 @@
-ft_atoi:		tested, trusted (until max int)
+ft_atoi:		tested, trusted (until max int)/just practice
 ft_bzero:		tested, trusted (memset)
 
 ft_memset:		tested, trusted	//why unsigned char
@@ -24,7 +24,7 @@ ft_strsplit:	tested, trusted, no leaks (when freed in calling function)
 ft_strstr:		tested, trusted until--
 ft_strtrim:		tested, trusted
 ft_strtrim_delim:	tested, trusted
-ft_strnstr:		tested, trusted until
+ft_strnstr:		tested, trusted until//test and rename vars
 ft_strcat:		tested, trusted
 ft_strchr:		tested, trusted
 ft_strclr:		looked, trusted until
@@ -39,4 +39,4 @@ ft_strlcat:		nopenopenope
 ft_strmap:		tested, trusted
 ft_strmapi:		tested, trusted
 ft_strlen:		tested, trusted
-
+ft_strrchr:		//add \0 special case
