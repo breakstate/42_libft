@@ -40,3 +40,4 @@ ft_strmap:		tested, trusted
 ft_strmapi:		tested, trusted
 ft_strlen:		tested, trusted
 ft_strrchr:		//add \0 special case
+practice writing ft_itoa as well
