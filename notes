@@ -1,4 +1,4 @@
-ft_atoi:		tested, trusted (until max int)/just practice
+ft_atoi:		tested, trusted (until max int)/just practice/ I got this
 ft_bzero:		tested, trusted (memset)
 
 ft_memset:		tested, trusted	//why unsigned char
