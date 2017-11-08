@@ -39,5 +39,6 @@ ft_strlcat:		nopenopenope
 ft_strmap:		tested, trusted
 ft_strmapi:		tested, trusted
 ft_strlen:		tested, trusted
-ft_strrchr:		//add \0 special case
+ft_strrchr:		tested, trusted//add \0 special case///fixed, run through file checker
+ft_strchr:		tested, trusted//check again with file checker
 practice writing ft_itoa as well
