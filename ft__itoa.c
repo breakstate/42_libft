@@ -10,43 +10,37 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "includes/libft.h"
 #include <stdio.h>
 #include <stdlib.h>
 
-/*int abs(int	n)
+int ft_abs(int	n)
 {
-	float num;
+	return (n *= -1);
+}
 
-	num = n;
-	if (num < 0)
-	{
-		num = -num;
-	}
-	if 
-
-}*/
-
-char	*count_digits(int	n)
+char	*count_digits(int	num, int *len)
 {
 	int 	count;
-	long	num;
+	long	lnum;
 	char	*str;
 	int		sign;
 
-	num = n;
+	lnum = num;
 	count = 2;
-	if (num < 0)
+	if (lnum < 0)
 	{
 		sign = -1;
 		count++;
-		num = -num;
+		lnum = -lnum;
 	}
-	while ((num / 10) > 0)
+	while ((lnum / 10) > 0)
 	{
-		num = num/10;
+		lnum = lnum/10;
 		count++;
 	}
 	str = ft_memalloc(count);
+	*len = count - 1;
 	printf("count = %d\n", count);
 	return (str);
 }
@@ -57,14 +51,23 @@ char *itoa(int n)
 	int		mod;
 	char	*str;
 	int		i;
+	int		len;
 
 	i = 0;
-	str  = count_digits(n);
+	str = count_digits(n, &len);
 	if (n < 0)
 	{
 		str[0] = '-';
 		i++;
 	}
+	while (n != 0)
+	{
+		str[len] = (ft_abs(n % 10) + 48);
+		printf("str[%d] = %c\n", len, str[len]);
+		n = n / 10;
+		len--;
+	}
+	printf("[%s]\n", str);
 	return (NULL);
 }
 
@@ -73,3 +76,8 @@ int main(int argc, char **argv)
 	itoa(atoi(argv[1]));
 	return (0);
 }
+
+//count digits and malloco string
+//mod and divide to pupulate string
+//bells and whistles - \0
+//resturn
