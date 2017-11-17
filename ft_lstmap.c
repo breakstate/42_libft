@@ -1,36 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gsferopo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/24 14:19:14 by gsferopo          #+#    #+#             */
-/*   Updated: 2017/07/31 11:14:28 by gsferopo         ###   ########.fr       */
+/*   Created: 2017/07/28 13:46:30 by gsferopo          #+#    #+#             */
+/*   Updated: 2017/07/28 13:51:46 by gsferopo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list		*ft_lstnew(void const *content, size_t content_size)
+t_list		*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
 	t_list	*tmp;
+	t_list	*ph;
+	t_list	*pi;
 
-	tmp = (t_list *)malloc(sizeof(t_list));
-	if (tmp)
+	ph = NULL;
+	if ((tmp = (*f)(lst)) == NULL)
+		return (NULL);
+	ph = tmp;
+	pi = ph;
+	lst = lst->next;
+	while (lst)
 	{
-		if (content == NULL)
-		{
-			tmp->content = NULL;
-			tmp->content_size = 0;
-		}
-		else
-		{
-			tmp->content = (void *)malloc(content_size);
-			ft_memcpy(tmp->content, content, content_size);
-			tmp->content_size = content_size;
-		}
-		tmp->next = NULL;
+		if ((tmp = (*f)(lst)) == NULL)
+			return (NULL);
+		pi->next = tmp;
+		pi = pi->next;
+		lst = lst->next;
 	}
-	return (tmp);
+	return (ph);
 }

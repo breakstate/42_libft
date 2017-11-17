@@ -71,7 +71,14 @@ SRC = ft_isascii.c\
 	  ft_isupper.c\
 	  ft_islower.c\
 	  ft_putnbr_endl.c\
-	  ft_charequ.c
+	  ft_charequ.c\
+	  ft_lstadd.c\
+	  ft_lstdel.c\
+	  ft_lstdelone.c\
+	  ft_lstiter.c\
+	  ft_lstmap.c\
+	  ft_lstnew.c
+
 
 INCLUDES = -I ./includes/
 
@@ -83,7 +90,6 @@ $(NAME):
 	gcc -c -Wall -Wextra -Werror $(SRC) $(INCLUDES)
 	ar rc $(NAME) $(OBJ)
 	ranlib $(NAME)
-	rm -f $(OBJ)
 
 clean:
 	rm -f $(OBJ)

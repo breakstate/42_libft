@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bmoodley <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: gsferopo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/06 10:25:14 by bmoodley          #+#    #+#             */
-/*   Updated: 2017/08/04 12:19:05 by bmoodley         ###   ########.fr       */
+/*   Created: 2017/07/31 11:14:11 by gsferopo          #+#    #+#             */
+/*   Updated: 2017/07/31 11:14:12 by gsferopo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libft.h"
+#include "libft.h"
 
-char	*ft_strnew(size_t size)
+void	ft_lstiter(t_list *lst, void (*f)(t_list *elem))
 {
-	char	*new;
-
-	new = (char *)malloc(sizeof(char) * size + 1);
-	if (new == NULL)
-		return (NULL);
-	ft_bzero(new, size);
-	return (new);
+	while (lst)
+	{
+		f(lst);
+		lst = lst->next;
+	}
 }

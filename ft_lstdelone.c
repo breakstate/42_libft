@@ -1,24 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bmoodley <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: gsferopo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/06 10:25:14 by bmoodley          #+#    #+#             */
-/*   Updated: 2017/08/04 12:19:05 by bmoodley         ###   ########.fr       */
+/*   Created: 2017/07/24 14:49:57 by gsferopo          #+#    #+#             */
+/*   Updated: 2017/07/28 10:06:54 by gsferopo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libft.h"
+#include "libft.h"
 
-char	*ft_strnew(size_t size)
+void	ft_lstdelone(t_list **alst, void (*del)(void *, size_t))
 {
-	char	*new;
-
-	new = (char *)malloc(sizeof(char) * size + 1);
-	if (new == NULL)
-		return (NULL);
-	ft_bzero(new, size);
-	return (new);
+	del((*alst)->content, (*alst)->content_size);
+	free(*alst);
+	*alst = NULL;
 }
