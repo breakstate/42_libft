@@ -12,6 +12,35 @@
 
 #include "libft.h"
 
+
+char	*ft_strtrim(char const *s)
+{
+	int		i;
+	int		start;
+	int		end;
+	
+	i = 0;
+	end = 0;
+	start = 0;
+	while (s[i] != '\0' && (s[i] == ' ' || s[i] == '\n' || s[i] == '\t'))
+		i++;
+	start = i;
+	i = ft_strlen(s) - 1;
+	while (i >= 0 && (s[i] == ' ' || s[i] == '\n' || s[i] == '\t'))
+	{
+		i--;
+	//	printf("len = [%d]\n", i);//debug
+	}
+	end = i + 1;
+	//printf("start = [%d], end = [%d], end - start = [%d]\n", start, end, end - start);//debug
+	if ((end - start) > 0)
+	{
+		return (ft_strsub(s, start, end - start));
+	}
+	else 
+		return (""); 
+}
+/*
 char	*ft_strtrim(char const *s)
 {
 	int i;
@@ -25,7 +54,7 @@ char	*ft_strtrim(char const *s)
 	{
 		while (s[i] == ' ' || s[i] == '\n' || s[i] == '\t')
 		{
-			if (i == (len))
+			if (i == (len - 1))
 				return ("");
 			i++;
 		}
@@ -37,3 +66,13 @@ char	*ft_strtrim(char const *s)
 	}
 	return (NULL);
 }
+*/
+/*
+int main()
+{
+	char *str = "";
+	printf("[%s]\n", ft_strtrim(str));
+	return (0);
+}
+*/
+

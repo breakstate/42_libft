@@ -1,103 +1,77 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft__itoa.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmoodley <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/27 09:42:30 by bmoodley          #+#    #+#             */
-/*   Updated: 2017/07/27 14:30:07 by bmoodley         ###   ########.fr       */
+/*   Created: 2017/11/09 14:53:24 by bmoodley          #+#    #+#             */
+/*   Updated: 2017/11/09 15:49:21 by bmoodley         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
+#include <stdio.h>
+#include <stdlib.h>
 
-int		ft_abs(int num)
-{
-	int sign;
-
-	sign = 1;
-	printf("ft_abs in = %d\n", num);
-	if (num < 0)
-	{
-		num = num * -1;
-	}
-	printf("ft_abs = %d\n", num);
-	return (num);
-}
-
-
-static int		digit_count(int n)
-{
-	int		num;
-	int 	i;
-
-	i = 0;
-	num = n;
-	if (n <= 0)
-	{
-		i++;
-		num = -n;
-	}
-	while (num > 0)
-	{
-		num = num / 10;
-		i++;
-	}
-	return (i);
-}
-
-int dc(int n)
+static int ft_abs(int	n)
 {
 	if (n < 0)
-	{
-		return (n > -10) ?  2: 1 + dc(n/10);
-	}
-	return (n < 10) ? 1 : 1 + dc(n/10) ;
+		return (n *= -1);
+	else 
+		return (n);
 }
 
-char	*ft_itoa(int n)
+static char	*ft_count_alloc(int n, int *len)
 {
-	char	*num;
-	int		i;
-	int		mod;
-	int		sign;
-	int		div;
+	int		temp_num;
+	int		temp_len;
+	char	*allocation;
 
-	i = dc(n);
-	num = ft_strnew(i);
-	printf("n = %d, i = %d\n", n, i);
+	temp_len = 1;
 	if (n < 0)
 	{
-		sign = -1;
-		//n *= sign;
+		temp_len++;
 	}
-	//mod = ft_abs(n % 10);
-	while (i-- >= 0)
+	temp_num = n;
+	while (temp_num /= 10)
 	{
-		mod = ft_abs(n % 10);
-		if (n < 10 && n > -10)
-		{
-			num[i] = ft_abs(n) + '0';
-			printf("---if---\n");
-		}
-		else if (mod < 10)
-		{
-			num[i] = mod + '0';
-			printf("---else---\n");
-		}
-		//mod = ft_abs(n % 10);
-		n = (n / 10);
-		printf("num[%d] = %c\n", i, num[i]);
+		temp_len++;
 	}
-	if (sign < 0)
-		num[0] = '-';
-	return (num);
+	allocation = ft_memalloc(temp_len + 1);
+	if (allocation == NULL)
+		return (NULL);
+	*len = temp_len;
+	return (allocation);
 }
 
-int main()
+char *ft_itoa(int n)
 {
-	printf("%s\n", ft_itoa(2147483647));
+	int		len;
+	char	*str;
+	int		neg;
+
+	len = 0;
+	neg = 0;
+	neg += (n < 0) ? 1 : 0;
+	str = ft_count_alloc(n, &len);
+	while ((len) > 0)
+	{
+		str[len - 1] = ft_abs(n % 10) + 48;
+		n /= 10;
+		len--;
+	}
+	if (neg)
+		str[len] = '-';
+	return (str);
+}
+
+/*
+int main(int argc, char **argv)
+{
+	if (argc)
+		printf("yes\n");
+	printf("[%s]\n", ft_itoa(atoi(argv[1])));
 	return (0);
 }
-//int min -2147483648
+*/

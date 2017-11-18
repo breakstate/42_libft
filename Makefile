@@ -46,6 +46,7 @@ SRC = ft_isascii.c\
 	  ft_strtrim.c\
 	  ft_putnbr.c\
 	  ft_putnbr_fd.c\
+	  ft_strsplit.c\
 	  ft_strstr.c\
 	  ft_strnstr.c\
 	  ft_striter.c\
@@ -64,6 +65,7 @@ SRC = ft_isascii.c\
 	  ft_strtrim_delim.c\
 	  ft_strsplit.c\
 	  ft_atoi.c\
+	  ft_itoa.c\
 	  ft_isspace.c\
 	  get_next_line.c\
 	  ft_lstnew.c\

@@ -14,21 +14,19 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	if (n == -2147483648)
+	long	num;
+
+	num = n;
+	if (num < 0)
 	{
-		ft_putstr_fd("-2147483648", fd);
-		return ;
-	}
-	if (n < 0)
-	{
-		n = -n;
+		num = -num;
 		ft_putchar_fd('-', fd);
 	}
-	if (n < 10)
-		ft_putchar_fd(n + '0', fd);
+	if (num < 10)
+		ft_putchar_fd(num + '0', fd);
 	else
 	{
-		ft_putnbr_fd(n / 10, fd);
-		ft_putnbr_fd(n % 10, fd);
+		ft_putnbr_fd(num / 10, fd);
+		ft_putnbr_fd(num % 10, fd);
 	}
 }
