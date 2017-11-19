@@ -102,7 +102,7 @@ char	**ft_strsplit(const char *str, char c)
 		word_array[i] = ft_get_words(str, c, i + 1);
 		i++;
 	}
-	//word_array[i] = "";
+	word_array[i] = 0;
 	return (word_array);
 }
 /*
@@ -114,10 +114,10 @@ int		main()
 	//printf("[%d]\n", ft_count_words("hello my name is", ' '));
 	//printf("word %d = [%s]\n", i, ft_get_words("hello my name is", ' ', i));
 
-	split = ft_strsplit("    split    ths   for me ! ", ' ');
+	split = ft_strsplit("***salut****!**", '*');
 	while (split[j])
 	{
-		printf("split[%d] = [%s]\n", j, split[j]);
+		printf("split[%d] = [%s]\n", j, split[0]);
 		j++;
 	}
 	return (0);
