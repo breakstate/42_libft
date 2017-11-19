@@ -6,7 +6,7 @@
 /*   By: bmoodley <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/18 12:50:35 by bmoodley          #+#    #+#             */
-/*   Updated: 2017/11/18 12:50:40 by bmoodley         ###   ########.fr       */
+/*   Updated: 2017/11/19 15:36:06 by bmoodley         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ static void		ft_gw_helper(int *count, int *flag, int *pos, int i)
 
 static char		*ft_get_words(const char *str, char c, int index)
 {
-	int		i;
-	int		count;
-	int		flag;
-	int		pos;
+	int			i;
+	int			count;
+	int			flag;
+	int			pos;
 
 	i = -1;
 	flag = 0;
@@ -46,28 +46,12 @@ static char		*ft_get_words(const char *str, char c, int index)
 	}
 	return (0);
 }
-/*
-static char		**ft_populate(char *str, int count, char c)
-{
-	char	**split;
-	int		i;
-	int		j;
-	int		k;
-
-	i = 0;
-	split = (char **)malloc(sizeof(char *) * (count + 1));
-	while (i < count)
-	{
-		split[i] = (ft_get_words(str, c, i + 1));
-	}
-}
-*/
 
 static int		ft_count_words(const char *str, char c)
 {
-	int		i;
-	int		count;
-	int		flag;
+	int			i;
+	int			count;
+	int			flag;
 
 	i = 0;
 	flag = 0;
@@ -86,11 +70,11 @@ static int		ft_count_words(const char *str, char c)
 	return (count);
 }
 
-char	**ft_strsplit(const char *str, char c)
+char			**ft_strsplit(const char *str, char c)
 {
-	int		i;
-	int		count_words;
-	char	**word_array;
+	int			i;
+	int			count_words;
+	char		**word_array;
 
 	i = 0;
 	count_words = ft_count_words(str, c);
@@ -105,21 +89,3 @@ char	**ft_strsplit(const char *str, char c)
 	word_array[i] = 0;
 	return (word_array);
 }
-/*
-int		main()
-{
-	char **split;
-	int i = 4;
-	int j = 0;
-	//printf("[%d]\n", ft_count_words("hello my name is", ' '));
-	//printf("word %d = [%s]\n", i, ft_get_words("hello my name is", ' ', i));
-
-	split = ft_strsplit("***salut****!**", '*');
-	while (split[j])
-	{
-		printf("split[%d] = [%s]\n", j, split[0]);
-		j++;
-	}
-	return (0);
-}
-*/

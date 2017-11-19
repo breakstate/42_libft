@@ -6,7 +6,7 @@
 /*   By: bmoodley <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/09 14:53:24 by bmoodley          #+#    #+#             */
-/*   Updated: 2017/11/09 15:49:21 by bmoodley         ###   ########.fr       */
+/*   Updated: 2017/11/19 15:19:53 by bmoodley         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-static int ft_abs(int	n)
+static int	ft_abs(int n)
 {
 	if (n < 0)
 		return (n *= -1);
-	else 
+	else
 		return (n);
 }
 
@@ -45,7 +45,7 @@ static char	*ft_count_alloc(int n, int *len)
 	return (allocation);
 }
 
-char *ft_itoa(int n)
+char		*ft_itoa(int n)
 {
 	int		len;
 	char	*str;
