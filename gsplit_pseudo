@@ -1,0 +1,9 @@
+checks if input string is null: returns null if yes
+
+if index is zero (no words) then malloc 5(?) and assign first element null and returns
+
+otherwise malloc num of words plus 1
+
+protect all mallocs
+
+loop through allocated 2d array calling get_words() 

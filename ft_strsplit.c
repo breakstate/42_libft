@@ -77,15 +77,28 @@ char			**ft_strsplit(const char *str, char c)
 	char		**word_array;
 
 	i = 0;
-	count_words = ft_count_words(str, c);
-	word_array = (char **)ft_memalloc(sizeof(char *) * (count_words + 1));
-	if (word_array == NULL)
-		return (NULL);
-	while (i < count_words)
+	word_array = NULL;
+	if (str != NULL)
 	{
-		word_array[i] = ft_get_words(str, c, i + 1);
-		i++;
+		count_words = ft_count_words(str, c);
+		word_array = (char **)ft_memalloc(sizeof(char *) * (count_words + 1));
+		if (word_array == NULL)
+			return (NULL);
+		//if (count_words == 0)
+		//{
+		//	word_array[0] = NULL;
+		//	return(word_array);
+		//}
+		while (i < count_words)
+		{
+			word_array[i] = ft_get_words(str, c, i + 1);
+			i++;
+		}
 	}
-	word_array[i] = 0;
+	else
+	{
+		word_array = (char **)malloc(sizeof(char *) * 1);
+	}
+	word_array[i] = NULL;
 	return (word_array);
 }
