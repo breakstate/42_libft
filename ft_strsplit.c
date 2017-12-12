@@ -31,7 +31,7 @@ static char		*ft_get_words(const char *str, char c, int index)
 	flag = 0;
 	count = 0;
 	pos = 0;
-	while (str[i++])
+	while (str[++i])
 	{
 		if (str[i] == c)
 			flag = 0;
@@ -84,11 +84,6 @@ char			**ft_strsplit(const char *str, char c)
 		word_array = (char **)ft_memalloc(sizeof(char *) * (count_words + 1));
 		if (word_array == NULL)
 			return (NULL);
-		//if (count_words == 0)
-		//{
-		//	word_array[0] = NULL;
-		//	return(word_array);
-		//}
 		while (i < count_words)
 		{
 			word_array[i] = ft_get_words(str, c, i + 1);
@@ -96,9 +91,6 @@ char			**ft_strsplit(const char *str, char c)
 		}
 	}
 	else
-	{
-		word_array = (char **)malloc(sizeof(char *) * 1);
-	}
-	word_array[i] = NULL;
+		word_array = (char **)ft_memalloc(sizeof(char *) * 1);
 	return (word_array);
 }
