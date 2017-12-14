@@ -6,7 +6,7 @@
 /*   By: bmoodley <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/06 10:25:14 by bmoodley          #+#    #+#             */
-/*   Updated: 2017/08/04 12:19:05 by bmoodley         ###   ########.fr       */
+/*   Updated: 2017/12/14 09:36:04 by bmoodley         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,6 @@ char	*ft_strnew(size_t size)
 	new = (char *)malloc(sizeof(char) * size + 1);
 	if (new == NULL)
 		return (NULL);
-	ft_bzero(new, size);
+	ft_bzero(new, size + 1);
 	return (new);
 }

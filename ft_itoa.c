@@ -11,8 +11,6 @@
 /* ************************************************************************** */
 
 #include "includes/libft.h"
-#include <stdio.h>
-#include <stdlib.h>
 
 static int	ft_abs(int n)
 {
@@ -38,9 +36,10 @@ static char	*ft_count_alloc(int n, int *len)
 	{
 		temp_len++;
 	}
-	allocation = ft_memalloc(temp_len + 1);
+	allocation = (char *)malloc(sizeof(char) * (temp_len + 1));
 	if (allocation == NULL)
 		return (NULL);
+	ft_bzero(allocation, temp_len + 1);
 	*len = temp_len;
 	return (allocation);
 }
@@ -55,6 +54,8 @@ char		*ft_itoa(int n)
 	neg = 0;
 	neg += (n < 0) ? 1 : 0;
 	str = ft_count_alloc(n, &len);
+	if (!(str))
+		return (NULL);
 	while ((len) > 0)
 	{
 		str[len - 1] = ft_abs(n % 10) + 48;
@@ -65,13 +66,3 @@ char		*ft_itoa(int n)
 		str[len] = '-';
 	return (str);
 }
-
-/*
-int main(int argc, char **argv)
-{
-	if (argc)
-		printf("yes\n");
-	printf("[%s]\n", ft_itoa(atoi(argv[1])));
-	return (0);
-}
-*/

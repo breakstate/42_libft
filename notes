@@ -42,3 +42,16 @@ ft_strlen:		tested, trusted
 ft_strrchr:		tested, trusted//add \0 special case///fixed, run through file checker
 ft_strchr:		tested, trusted//check again with file checker
 practice writing ft_itoa as well
+
+
+changes:
+ft_bzero
+ft_memccpy
+ft_memchr [v]
+ft_memcmp [v]
+ft_memcpy
+ft_memset
+ft_strncmp
+ft_strnstr
+ft_strrchr
+ft_strstr

@@ -24,59 +24,19 @@ char	*ft_strtrim(char const *s)
 	start = 0;
 	if (s)
 	{
-		while (s[i] != '\0' && (s[i] == ' ' || s[i] == '\n' || s[i] == '\t') && s)
+		while (s[i] != '\0' && (s[i] == ' ' || s[i] == '\n' || s[i] == '\t'))
 			i++;
 		start = i;
 		i = ft_strlen(s) - 1;
-		while (i >= 0 && (s[i] == ' ' || s[i] == '\n' || s[i] == '\t') && s)
+		while (i > -1 && (s[i] == ' ' || s[i] == '\n' || s[i] == '\t'))
 		{
 			i--;
-		//	printf("len = [%d]\n", i);//debug
 		}
 		end = i + 1;
-		//printf("start = [%d], end = [%d], end - start = [%d]\n", start, end, end - start);//debug
 		if ((end - start) > 0)
-		{
 			return (ft_strsub(s, start, end - start));
-		}
 		else 
-			return (""); 
+			return (ft_strnew(0)); 
 	}
 	return (NULL);
 }
-/*
-char	*ft_strtrim(char const *s)
-{
-	int i;
-	int j;
-	int len;
-
-	j = 0;
-	i = 0;
-	len = ft_strlen(s);
-	if (s != NULL)
-	{
-		while (s[i] == ' ' || s[i] == '\n' || s[i] == '\t')
-		{
-			if (i == (len - 1))
-				return ("");
-			i++;
-		}
-		j = (len - 1);
-		while (s[j] == ' ' || s[j] == '\n' || s[j] == '\t')
-			j--;
-		j = j - i + 1;
-		return (ft_strsub(s, i, j));
-	}
-	return (NULL);
-}
-*/
-/*
-int main()
-{
-	char *str = "";
-	printf("[%s]\n", ft_strtrim(str));
-	return (0);
-}
-*/
-
